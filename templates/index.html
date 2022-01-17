@@ -1,0 +1,37 @@
+{% extends 'master.html' %}
+{% block content %}
+<form action="{{ request.path }}" , method="post" id="formRegistro">
+    <input type="text" id="full_name" name="full_name" placeholder="full_name">
+    <input type="email" id="email" name="email" placeholder="email">
+    <input type="text" id="city" name="city" placeholder="city">
+
+
+    <input id="btnRegistrar" type="submit">
+
+</form>
+{% if error!="" %}
+<h3 style="color:red;">Hay un campo vacio</h3>
+{% endif %}
+<br>
+<br>
+<table style="border:1px solid black;">
+  <tr>
+    <td style="border:1px solid black;"><h4>Full name</h4></td>
+    <td style="border:1px solid black;"><h4>Email</h4></td>
+    <td style="border:1px solid black;"><h4>City</h4></td>
+  </tr>
+    {% for i in users %}
+
+  <tr>
+    <td style="border:1px solid black;"><h4> {{i.full_name}}</h4></td>
+    <td style="border:1px solid black;"><h4> {{i.email}}</h4></td>
+    <td style="border:1px solid black;"><h4> {{i.city}}</h4></td>
+  </tr>
+    {% endfor %}
+</table>
+
+
+
+
+
+{% endblock %}
